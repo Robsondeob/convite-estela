@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Estela Camily | 15 anos</title>
+    <meta
+      name="description"
+      content="Convite digital dos 15 anos de Estela Camily, com data, local, confirmação de presença, dress code e sugestões de presente."
+    />
+    <meta name="theme-color" content="#f9f8f2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #fbfaf6;
+        --paper-soft: #f3f1e8;
+        --ink: #352026;
+        --marsala: #721c38;
+        --marsala-deep: #4e1126;
+        --marsala-soft: #ead6dc;
+        --gold: #c19a4d;
+        --line: rgba(114, 28, 56, 0.2);
+        --shadow: rgba(53, 32, 38, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100svh;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.72), transparent 34rem),
+          linear-gradient(90deg, #dedbd1, #f7f5ed 32%, #f7f5ed 68%, #dedbd1);
+        color: var(--ink);
+        font-family: "Montserrat", system-ui, sans-serif;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.22;
+        background-image:
+          linear-gradient(rgba(114, 28, 56, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(114, 28, 56, 0.05) 1px, transparent 1px);
+        background-size: 72px 72px, 86px 86px;
+        mix-blend-mode: multiply;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .invite {
+        position: relative;
+        width: min(100%, 480px);
+        min-height: 100svh;
+        margin: 0 auto;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(114, 28, 56, 0.035), transparent 49.7%, rgba(114, 28, 56, 0.14) 49.9%, rgba(255, 255, 255, 0.72) 50.1%, transparent 50.3%, rgba(114, 28, 56, 0.035)),
+          radial-gradient(circle at 50% 12%, #ffffff, transparent 28rem),
+          var(--paper);
+        box-shadow: 0 0 44px rgba(0, 0, 0, 0.18);
+      }
+
+      .invite::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 50%;
+        width: min(100%, 480px);
+        height: 100svh;
+        transform: translateX(-50%);
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, transparent, rgba(114, 28, 56, 0.07), transparent),
+          repeating-linear-gradient(0deg, rgba(114, 28, 56, 0.035), rgba(114, 28, 56, 0.035) 1px, transparent 1px, transparent 18px);
+        opacity: 0.4;
+      }
+
+      .cover {
+        position: fixed;
+        z-index: 30;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        background: #111;
+        perspective: 1500px;
+        transition: opacity 520ms ease 1050ms, visibility 0ms linear 1580ms;
+      }
+
+      .cover-frame {
+        position: relative;
+        width: min(100%, 480px);
+        height: 100svh;
+        overflow: hidden;
+        background: var(--paper);
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+      }
+
+      .door {
+        position: absolute;
+        top: 0;
+        width: 50.12%;
+        height: 100%;
+        border: 0;
+        padding: 0;
+        appearance: none;
+        background-color: var(--paper);
+        background-image: url("assets/cover-estela.png?v=marsala");
+        background-size: 200% 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        transition: transform 1300ms cubic-bezier(0.2, 0.72, 0.18, 1), filter 900ms ease;
+      }
+
+      .door-left {
+        left: 0;
+        transform-origin: left center;
+        background-position: left center;
+      }
+
+      .door-right {
+        right: 0;
+        transform-origin: right center;
+        background-position: right center;
+      }
+
+      .cover-hotspot {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .open .door-left {
+        transform: translateX(-102%) rotateY(-16deg);
+        filter: brightness(0.98);
+      }
+
+      .open .door-right {
+        transform: translateX(102%) rotateY(16deg);
+        filter: brightness(1.02);
+      }
+
+      .open .cover {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .section {
+        position: relative;
+        padding: 60px 34px;
+      }
+
+      .hero {
+        min-height: 100svh;
+        display: grid;
+        align-content: center;
+        text-align: center;
+        padding: 72px 34px 58px;
+      }
+
+      .hero::before,
+      .hero::after,
+      .section-floral::before,
+      .section-floral::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        display: none;
+      }
+
+      .hero::before {
+        width: 164px;
+        height: 164px;
+        left: -38px;
+        top: 86px;
+        transform: rotate(-18deg);
+      }
+
+      .hero::after {
+        width: 132px;
+        height: 132px;
+        right: -28px;
+        bottom: 120px;
+        transform: rotate(20deg);
+      }
+
+      .script {
+        margin: 0;
+        color: var(--marsala-deep);
+        font-family: "Great Vibes", "French Script MT", cursive;
+        font-weight: 400;
+        line-height: 0.9;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.72);
+      }
+
+      .hero h1 {
+        font-size: clamp(78px, 24vw, 128px);
+      }
+
+      .age {
+        margin: 16px 0 0;
+        color: var(--gold);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 38px;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .save {
+        display: grid;
+        gap: 0;
+        justify-items: center;
+        margin: 50px 0 18px;
+        color: var(--marsala-deep);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        line-height: 0.94;
+      }
+
+      .date {
+        display: inline-flex;
+        justify-content: center;
+        width: 100%;
+        margin: 12px auto 0;
+        color: var(--gold);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 27px;
+        font-weight: 700;
+      }
+
+      .ornament {
+        width: 168px;
+        height: 1px;
+        margin: 38px auto 34px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      }
+
+      .parents,
+      .intro {
+        max-width: 350px;
+        margin: 0 auto;
+        color: #4d3037;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 23px;
+        line-height: 1.42;
+      }
+
+      .intro {
+        margin-top: 18px;
+        font-size: 25px;
+        font-weight: 600;
+      }
+
+      .quote {
+        padding-top: 68px;
+        padding-bottom: 68px;
+        background: linear-gradient(180deg, rgba(246, 240, 238, 0.68), rgba(255, 255, 255, 0.28));
+        border-top: 1px solid rgba(193, 154, 77, 0.24);
+        border-bottom: 1px solid rgba(193, 154, 77, 0.24);
+      }
+
+      blockquote {
+        margin: 0;
+        color: #3f252d;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 25px;
+        font-style: italic;
+        line-height: 1.48;
+        text-align: center;
+      }
+
+      .title-block {
+        text-align: center;
+      }
+
+      .title-block .script {
+        font-size: 82px;
+      }
+
+      .subtitle {
+        margin: 4px 0 0;
+        color: var(--marsala);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+      }
+
+      .detail-list {
+        display: grid;
+        gap: 0;
+        margin: 42px 0 0;
+      }
+
+      .detail {
+        padding: 24px 0;
+        border-top: 1px solid rgba(193, 154, 77, 0.28);
+        text-align: center;
+      }
+
+      .detail:last-child {
+        border-bottom: 1px solid rgba(193, 154, 77, 0.28);
+      }
+
+      .label {
+        margin: 0 0 8px;
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+      }
+
+      .value {
+        margin: 0;
+        color: var(--marsala-deep);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 29px;
+        font-weight: 700;
+        line-height: 1.18;
+      }
+
+      .hint {
+        margin: 34px 0 18px;
+        color: rgba(53, 32, 38, 0.68);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .actions {
+        display: grid;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 52px;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid rgba(193, 154, 77, 0.45);
+        border-radius: 8px;
+        padding: 14px 18px;
+        background: rgba(255, 255, 255, 0.72);
+        color: var(--marsala-deep);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-decoration: none;
+        text-transform: uppercase;
+        box-shadow: 0 12px 28px rgba(77, 17, 38, 0.07);
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, #4e1126, #761d3a);
+        color: #fffef8;
+        border-color: rgba(193, 154, 77, 0.55);
+      }
+
+      .button .mark {
+        color: var(--gold);
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+
+      .dress,
+      .gifts {
+        background: rgba(247, 240, 240, 0.62);
+        border-top: 1px solid rgba(193, 154, 77, 0.22);
+      }
+
+      .copy {
+        border: 0;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .gift-list {
+        display: grid;
+        gap: 10px;
+        margin: 26px 0 26px;
+        padding: 0;
+        list-style: none;
+        color: #4d3037;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 24px;
+        line-height: 1.26;
+        text-align: center;
+      }
+
+      .gift-list li::before {
+        content: "•";
+        margin-right: 8px;
+        color: var(--gold);
+      }
+
+      .pix {
+        margin: 12px 0 0;
+        color: var(--marsala-deep);
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .footer {
+        padding: 48px 28px 64px;
+        text-align: center;
+      }
+
+      .footer .script {
+        font-size: 62px;
+      }
+
+      .footer p {
+        margin: 10px 0 0;
+        color: rgba(53, 32, 38, 0.66);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 360px) {
+        .section {
+          padding-inline: 22px;
+        }
+
+        .age {
+          font-size: 34px;
+        }
+
+        .button {
+          font-size: 11px;
+          letter-spacing: 0.1em;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .door,
+        .cover {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="invite" id="invite">
+      <div class="cover" id="cover">
+        <div class="cover-frame" aria-label="Convite fechado de Estela Camily">
+          <button class="door door-left" type="button" aria-label="Abrir convite"></button>
+          <button class="door door-right" type="button" aria-label="Abrir convite"></button>
+          <button class="cover-hotspot" id="openInvite" type="button" aria-label="Clique para acessar o convite"></button>
+        </div>
+      </div>
+
+      <main class="content">
+        <section class="section hero" id="inicio">
+          <h1 class="script">Estela Camily</h1>
+          <p class="age">15 anos</p>
+          <div class="save" aria-label="Save the date">
+            <span>Save</span>
+            <span>the</span>
+            <span>Date</span>
+          </div>
+          <time class="date" datetime="2026-09-12T20:00">12 de setembro de 2026</time>
+          <div class="ornament"></div>
+          <p class="parents">Junto com seus pais Nathanne Camila e Fábio Macedo</p>
+          <p class="intro">Convidamos você para celebrar seus 15 anos.</p>
+        </section>
+
+        <section class="section quote">
+          <blockquote>
+            “Quinze anos… uma idade mágica, cheia de sonhos, descobertas e novos caminhos. Quero celebrar esse momento tão especial ao lado das pessoas que fazem parte da minha história. Sua presença tornará essa noite ainda mais inesquecível!”
+          </blockquote>
+        </section>
+
+        <section class="section section-floral details" id="detalhes">
+          <div class="title-block">
+            <h2 class="script">Estela Camily</h2>
+            <p class="subtitle">15 anos</p>
+          </div>
+
+          <div class="detail-list">
+            <div class="detail">
+              <p class="label">Data</p>
+              <p class="value">12/09/2026</p>
+            </div>
+            <div class="detail">
+              <p class="label">Horário</p>
+              <p class="value">Sábado, às 20h</p>
+            </div>
+            <div class="detail">
+              <p class="label">Local</p>
+              <p class="value">Sítio do Varley<br />José Henriques / Brumadinho</p>
+            </div>
+          </div>
+
+          <p class="hint">Toque nos itens para interagir</p>
+
+          <div class="actions">
+            <a
+              class="button primary"
+              href="https://www.google.com/maps/place/Espa%C3%A7o+Varlei+Moreira/@-20.1590752,-44.2102986,510m/data=!3m1!1e3!4m12!1m5!3m4!2zMjDCsDA5JzMxLjUiUyA0NMKwMTInMzMuMCJX!8m2!3d-20.1587353!4d-44.209156!3m5!1s0xa6cd1b4db3f965:0x8de1270c238c79f1!8m2!3d-20.1595713!4d-44.2088821!16s%2Fg%2F11t1rwb56v?hl=pt-BR&amp;entry=ttu&amp;g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="mark">⌖</span>
+              Localização
+            </a>
+            <a
+              class="button"
+              href="https://wa.me/5531997241513?text=Ol%C3%A1%21%20Confirmo%20minha%20presen%C3%A7a%20nos%2015%20anos%20da%20Estela%20Camily."
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="mark">✓</span>
+              Confirmar presença
+            </a>
+            <a
+              class="button"
+              href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=15%20anos%20de%20Estela%20Camily&amp;dates=20260912T230000Z/20260913T050000Z&amp;details=Convite%20dos%2015%20anos%20de%20Estela%20Camily.%20S%C3%A1bado%2C%20%C3%A0s%2020h.&amp;location=S%C3%ADtio%20do%20Varley%2C%20Jos%C3%A9%20Henriques%2C%20Brumadinho%20-%20MG"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="mark">＋</span>
+              Adicionar à agenda
+            </a>
+          </div>
+        </section>
+
+        <section class="section dress section-floral" id="dress-code">
+          <div class="title-block">
+            <h2 class="script">Dress Code</h2>
+            <p class="subtitle">traje esporte fino</p>
+          </div>
+          <div class="ornament"></div>
+          <p class="parents">
+            Sugerimos o uso de traje esporte fino. Não usar tons de verde, pois é uso exclusivo da debutante.
+          </p>
+        </section>
+
+        <section class="section gifts" id="presentes">
+          <div class="title-block">
+            <h2 class="script">Para Presentear</h2>
+          </div>
+          <div class="ornament"></div>
+          <p class="parents">
+            Sua presença é o meu maior presente, mas caso queira me presentear, estas são algumas sugestões.
+          </p>
+          <ul class="gift-list">
+            <li>Maquiagem</li>
+            <li>Perfume amadeirado</li>
+            <li>Roupa P</li>
+            <li>Calçado 38</li>
+            <li>Calça ou short 38</li>
+            <li>Acessórios Vivara ou Romanel</li>
+          </ul>
+          <p class="pix">Pix: 15983845624</p>
+          <button class="button copy" id="copyPix" type="button">
+            <span class="mark">◇</span>
+            Copiar Pix
+          </button>
+        </section>
+
+        <footer class="footer">
+          <h2 class="script">Estela</h2>
+          <p>12 de setembro de 2026</p>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      const invite = document.querySelector("#invite");
+      const cover = document.querySelector("#cover");
+      const openInvite = document.querySelector("#openInvite");
+      const copyPix = document.querySelector("#copyPix");
+      const pixKey = "15983845624";
+
+      function openCard() {
+        invite.classList.add("open");
+        setTimeout(() => {
+          cover.setAttribute("aria-hidden", "true");
+          document.querySelector("#inicio").scrollIntoView({ block: "start" });
+        }, 920);
+      }
+
+      openInvite.addEventListener("click", openCard);
+      document.querySelectorAll(".door").forEach((door) => door.addEventListener("click", openCard));
+
+      copyPix.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(pixKey);
+          copyPix.innerHTML = '<span class="mark">✓</span> Pix copiado';
+        } catch {
+          copyPix.innerHTML = '<span class="mark">◇</span> Pix: 15983845624';
+        }
+      });
+    </script>
+  </body>
+</html>
