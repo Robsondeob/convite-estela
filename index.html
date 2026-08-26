@@ -180,6 +180,12 @@
         align-content: center;
         text-align: center;
         padding: 72px 34px 58px;
+        isolation: isolate;
+      }
+
+      .hero > :not(.scattered-flowers) {
+        position: relative;
+        z-index: 1;
       }
 
       .hero::before,
@@ -253,6 +259,25 @@
         font-family: "Cormorant Garamond", Georgia, serif;
         font-size: 27px;
         font-weight: 700;
+      }
+
+      .scattered-flowers {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .floral-cloud {
+        position: absolute;
+        left: 50%;
+        top: 53%;
+        width: min(128vw, 620px);
+        max-width: none;
+        opacity: 0.24;
+        transform: translate(-50%, -50%);
+        filter: saturate(0.98) drop-shadow(0 20px 24px rgba(70, 14, 34, 0.08));
       }
 
       .ornament {
@@ -496,7 +521,10 @@
             <span>the</span>
             <span>Date</span>
           </div>
-          <time class="date" datetime="2026-09-12T20:00">12 de setembro de 2026</time>
+          <div class="scattered-flowers" aria-hidden="true">
+            <img class="floral-cloud" src="assets/floral-scattered-luxury.png?v=1" alt="" />
+          </div>
+          <time class="date" datetime="2026-09-12T21:00">12 de setembro de 2026</time>
           <div class="ornament"></div>
           <p class="parents">Junto com seus pais Nathanne Camila e Fábio Macedo</p>
           <p class="intro">Convidamos você para celebrar seus 15 anos.</p>
@@ -521,7 +549,7 @@
             </div>
             <div class="detail">
               <p class="label">Horário</p>
-              <p class="value">Sábado, às 20h</p>
+              <p class="value">Sábado, às 21h</p>
             </div>
             <div class="detail">
               <p class="label">Local</p>
@@ -552,7 +580,7 @@
             </a>
             <a
               class="button"
-              href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=15%20anos%20de%20Estela%20Camily&amp;dates=20260912T230000Z/20260913T050000Z&amp;details=Convite%20dos%2015%20anos%20de%20Estela%20Camily.%20S%C3%A1bado%2C%20%C3%A0s%2020h.&amp;location=S%C3%ADtio%20do%20Varley%2C%20Jos%C3%A9%20Henriques%2C%20Brumadinho%20-%20MG"
+              href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=15%20anos%20de%20Estela%20Camily&amp;dates=20260913T000000Z/20260913T060000Z&amp;details=Convite%20dos%2015%20anos%20de%20Estela%20Camily.%20S%C3%A1bado%2C%20%C3%A0s%2021h.&amp;location=S%C3%ADtio%20do%20Varley%2C%20Jos%C3%A9%20Henriques%2C%20Brumadinho%20-%20MG"
               target="_blank"
               rel="noreferrer"
             >
